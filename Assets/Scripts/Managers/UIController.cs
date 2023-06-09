@@ -5,17 +5,17 @@ using TMPro;
 
 public class UIController : MonoBehaviour
 {
+    [Header("")]
     [SerializeField] TextMeshProUGUI scoreText;
-
-    GameController gameController;
 
     private void Start()
     {
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        UpdateScore();
+        GameController.Instance.coinCollect.AddListener(UpdateScore);
     }
 
-    public void UpdateScore()
+    private void UpdateScore()
     {
-        scoreText.text = gameController.score.ToString();
+        scoreText.text = GameController.Instance.score.ToString();
     }
 }
