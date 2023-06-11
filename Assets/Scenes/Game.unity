@@ -547,7 +547,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1115598990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.2, y: -0.61, z: 0}
+  m_LocalPosition: {x: -13.58, y: 4.1500006, z: 0}
   m_LocalScale: {x: 6.586005, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -656,7 +656,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396359208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8, y: -2.3, z: 0}
+  m_LocalPosition: {x: -13.59, y: 2.6500003, z: 0}
   m_LocalScale: {x: 6.586005, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -816,6 +816,7 @@ GameObject:
   - component: {fileID: 1541672341}
   - component: {fileID: 1541672343}
   - component: {fileID: 1541672344}
+  - component: {fileID: 1541672345}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -863,8 +864,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0.50902385, b: 0.23113209, a: 1}
+  m_Sprite: {fileID: -8678458635035512394, guid: 66dc9e1bd36c0ee42af11611fb533284, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -882,8 +883,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541672338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5, y: 3.07, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalPosition: {x: -0.1, y: 3.07, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 695679438}
   m_Father: {fileID: 0}
@@ -1059,12 +1060,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1541672341}
-  speed: 10
-  jumpingPower: 6.5
+  spriteRend: {fileID: 1541672339}
+  anim: {fileID: 1541672345}
+  maxSpeed: 20
+  xAccel: 5.57
+  xDecel: 20
+  jumpingPower: 31.79
+  downwardAccel: 2.97
+  upwardDecel: 1.37
+  xAirDecelMultiplier: 0.06
+  xAirAccelMultiplier: 0.63
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   groundCheck: {fileID: 695679438}
+--- !u!95 &1541672345
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541672338}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fe35cc44605a6cc4ea905701524d7403, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1574682295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,7 +1359,7 @@ Transform:
   m_GameObject: {fileID: 1643550639}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.16, y: -4.08, z: 0}
-  m_LocalScale: {x: 17.0225, y: 1, z: 1}
+  m_LocalScale: {x: 32.222042, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -1703,11 +1731,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8705029000559783881, guid: 7e6645a6226646842988f12213a32deb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.4377246
+      value: -15.129999
       objectReference: {fileID: 0}
     - target: {fileID: 8705029000559783881, guid: 7e6645a6226646842988f12213a32deb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.0828109
+      value: 6.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8705029000559783881, guid: 7e6645a6226646842988f12213a32deb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1780,11 +1808,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8705029000559783881, guid: 7e6645a6226646842988f12213a32deb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.68
+      value: -16.55
       objectReference: {fileID: 0}
     - target: {fileID: 8705029000559783881, guid: 7e6645a6226646842988f12213a32deb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7
+      value: 5.84
       objectReference: {fileID: 0}
     - target: {fileID: 8705029000559783881, guid: 7e6645a6226646842988f12213a32deb, type: 3}
       propertyPath: m_LocalPosition.z
