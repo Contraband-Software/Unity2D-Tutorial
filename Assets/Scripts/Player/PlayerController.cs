@@ -6,43 +6,40 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Component References")]
-    [SerializeField] Rigidbody2D rb;
+    public Rigidbody2D rb;
     [SerializeField] SpriteRenderer spriteRend;
-    [SerializeField] Animator anim;
+    public Animator anim;
 
     [Header("Player Settings")]
-    [SerializeField] float maxSpeed;
-    [SerializeField] float xAccel;
-    [SerializeField] float xDecel;
-    [SerializeField] float jumpingPower;
-    [Space(10)]
-    [SerializeField] float downwardAccel;
-    [SerializeField] float upwardDecel;
-    [Space(10)]
-    [SerializeField] float xAirDecelMultiplier;
-    [SerializeField] float xAirAccelMultiplier;
-    private float horizontal;
+    public float maxSpeed;
+    public float xAccel;
+    public float xDecel;
+    public float jumpingPower;
+    public float downwardAccel;
+    public float upwardDecel;
+    public float xAirDecelMultiplier;
+    public float xAirAccelMultiplier;
+    public float horizontal { get; private set; }
 
     [Header("Grounding")]
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheck;
-    private bool isGrounded = false;
+    public bool isGrounded { get; private set; } = false;
 
+    [Header("State")]
+    [SerializeField] private PlayerStateHandler stateHandler;
 
-    //State
-    public enum State { IDLE, RUN, JUMP, FALLING}
-    private State state = State.IDLE;
+    private void Start()
+    {
+        stateHandler.Initialize(this);
+    }
 
     private void FixedUpdate()
     {
         isGrounded = IsGrounded();
-
-        HorizontalVelocity();
-        VerticalVelocity();
     }
     private void Update()
     {
-        StateControl();
         AnimationControl();
     }
 
@@ -54,83 +51,17 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if(context.performed && isGrounded)
+        if(context.performed)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-            state = State.JUMP;
-            anim.Play("Jump");
+            stateHandler.HandleJump();
         }
     }
 
-
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(1f, 0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
     }
     #endregion
-
-    #region MOVEMENT_MANIPULATION
-    /// <summary>
-    /// Find target velocity based off of direction and max speed
-    /// Move towards that velocity by finding difference between
-    /// current velocity and target.
-    /// </summary>
-    private void HorizontalVelocity()
-    {
-        //apply acceleration in direction, or decelerate if AD keys not being pressed
-
-        float targetVelocity = horizontal * maxSpeed;
-        float acceleration;
-        //check if airborne or not
-        if (isGrounded)
-        {
-            //apply normal acceleration/deceleration
-            acceleration = (Mathf.Abs(horizontal) > 0) ? xAccel : xDecel;
-        }
-        else
-        {
-            //apply airborne multiplier
-            acceleration = (Mathf.Abs(horizontal) > 0) ? xAccel * xAirAccelMultiplier : xDecel * xAirDecelMultiplier;
-        }
-
-        //Calculate difference between current velocity and desired velocity
-        float velocityDiff = targetVelocity - rb.velocity.x;
-        //Calculate force along x-axis to apply to thr player
-        float movement = velocityDiff * acceleration;
-
-        //Convert this to a vector and apply to rigidbody
-        rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
-
-    }
-
-    /// <summary>
-    /// Controls the vertical speed behaviour
-    /// </summary>
-    private void VerticalVelocity()
-    {
-        float acceleration = (rb.velocity.y < 0) ? upwardDecel : downwardAccel;
-        rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y - acceleration);
-    }
-
-    #endregion
-
-    #region STATE
-    private void StateControl()
-    {
-        if(horizontal != 0 && isGrounded)
-        {
-            state = State.RUN;
-        }
-        if (!isGrounded && state != State.FALLING)
-        {
-            state = State.JUMP;
-        }
-        if(horizontal == 0 && isGrounded)
-        {
-            state = State.IDLE;
-        }
-    }
-
 
     private void AnimationControl()
     {
@@ -143,38 +74,5 @@ public class PlayerController : MonoBehaviour
         {
             spriteRend.flipX = true;
         }
-
-        switch(state){
-            case State.RUN:
-                if (Mathf.Abs(rb.velocity.x) > 0.2f)
-                {
-                    anim.Play("Run");
-                }
-                else if (Mathf.Abs(rb.velocity.x) < 1f)
-                {
-                    anim.Play("Idle");
-                }
-                break;
-
-            case State.JUMP:
-                if(rb.velocity.y < 0)
-                {
-                    anim.Play("JumpFall");
-                }
-                if(rb.velocity.y > 0)
-                {
-                    anim.Play("Jump");
-                }
-                break;
-
-            case State.IDLE:
-                anim.Play("Idle");
-                break;
-
-            default:
-                break;
-        }
-
     }
-    #endregion
 }

@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: PixelOutline
   m_Shader: {fileID: -6465566751694194690, guid: fe91f832094c63345a474ed80a0d60ed, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: CORNERS_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -44,8 +44,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - CORNERS: 0
+    - CORNERS: 1
     - _OutlineThickness: 1
     m_Colors:
-    - _OutlineColour: {r: 1, g: 0.4103774, b: 0.4103774, a: 1}
+    - _OutlineColour: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
