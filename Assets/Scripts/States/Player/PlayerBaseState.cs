@@ -1,13 +1,8 @@
 using UnityEngine;
 
-public abstract class PlayerBaseState : IPlayerInputHandler
+public abstract class PlayerBaseState : BaseState<PlayerStateHandler>, IPlayerInputHandler
 {
     protected PlayerController pCon;
-    /// <summary>
-    /// What you do when you first transition to this state
-    /// </summary>
-    /// <param name="stateHandler"></param>
-    public abstract void EnterState(PlayerStateHandler stateHandler);
 
     /// <summary>
     /// What you do in the state per frame
@@ -21,6 +16,10 @@ public abstract class PlayerBaseState : IPlayerInputHandler
     /// <param name="stateHandler"></param>
     public abstract void FixedUpdateState(PlayerStateHandler stateHandler);
 
+    /// <summary>
+    /// Allows handling a jump input event
+    /// </summary>
+    /// <param name="stateHandler"></param>
     public virtual void Jump(PlayerStateHandler stateHandler)
     {
     }

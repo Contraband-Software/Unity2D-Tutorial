@@ -12,6 +12,10 @@ public class IndyRun : PlayerBaseState
         Debug.Log("ENTER RUN");
     }
 
+    public override void ExitState(PlayerStateHandler stateHandler)
+    {
+    }
+
     public override void UpdateState(PlayerStateHandler stateHandler)
     {
         pCon.anim.Play("Run");

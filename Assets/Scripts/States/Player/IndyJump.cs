@@ -14,6 +14,9 @@ public class IndyJump : PlayerBaseState
         pCon.rb.velocity = new Vector2(pCon.rb.velocity.x, pCon.jumpingPower);
         pCon.anim.Play("Jump");
     }
+    public override void ExitState(PlayerStateHandler stateHandler)
+    {
+    }
 
     public override void UpdateState(PlayerStateHandler stateHandler)
     {

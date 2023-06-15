@@ -8,10 +8,9 @@ using UnityEngine;
 /// passing all information to each state.
 /// </summary>
 
-public class PlayerStateHandler : MonoBehaviour
+public class PlayerStateHandler : StateHandler
 {
     PlayerBaseState currentState;
-
     //reference to player controller
     public PlayerController pCon;
 

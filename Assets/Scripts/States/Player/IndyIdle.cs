@@ -11,6 +11,9 @@ public class IndyIdle : PlayerBaseState, IPlayerInputHandler
     {
         Debug.Log("ENTER IDLE");
     }
+    public override void ExitState(PlayerStateHandler stateHandler)
+    {
+    }
 
     public override void UpdateState(PlayerStateHandler stateHandler)
     {

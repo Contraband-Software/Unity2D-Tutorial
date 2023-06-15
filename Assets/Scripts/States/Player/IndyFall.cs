@@ -12,6 +12,9 @@ public class IndyFall : PlayerBaseState
         Debug.Log("ENTER FALL");
         pCon.anim.Play("JumpFall");
     }
+    public override void ExitState(PlayerStateHandler stateHandler)
+    {
+    }
 
     public override void FixedUpdateState(PlayerStateHandler stateHandler)
     {
