@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class IndyIdle : PlayerBaseState, IPlayerInputHandler
+public class IndyIdle : PlayerBaseState
 {
     public IndyIdle(PlayerController pCon)
     {
