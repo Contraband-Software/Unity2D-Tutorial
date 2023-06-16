@@ -38,14 +38,6 @@ public class IndyRun : PlayerBaseState
         HorizontalVelocity();
     }
 
-    public override void Jump(PlayerStateHandler stateHandler)
-    {
-        if (stateHandler.pCon.isGrounded)
-        {
-            stateHandler.SwitchState(stateHandler.jumpState);
-        }
-    }
-
     #region MOVEMENT_MANIPULATION
     /// <summary>
     /// Indy will be running on the ground always in the Run State
@@ -65,6 +57,25 @@ public class IndyRun : PlayerBaseState
 
         //Convert this to a vector and apply to rigidbody
         pCon.rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
+    }
+    #endregion
+
+    #region CONTROLS
+    public override void Jump(PlayerStateHandler stateHandler)
+    {
+        if (stateHandler.pCon.isGrounded)
+        {
+            stateHandler.SwitchState(stateHandler.jumpState);
+        }
+    }
+
+    public override void Slide(PlayerStateHandler stateHandler)
+    {
+        if (pCon.isGrounded && Mathf.Abs(pCon.rb.velocity.x) > 4f && !stateHandler.slideOnCooldown)
+        {
+            stateHandler.StartSlideCooldown();
+            stateHandler.SwitchState(stateHandler.slideState);
+        }
     }
     #endregion
 }

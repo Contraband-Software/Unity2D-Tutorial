@@ -1076,6 +1076,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ec1acfc6-2bba-495f-824f-184cb3819157
     m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1541672344}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Slide
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4fd2564e-983f-45d2-920d-362a5122d334
+    m_ActionName: Player/Slide[/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -1104,6 +1120,8 @@ MonoBehaviour:
   upwardDecel: 1.37
   xAirDecelMultiplier: 0.06
   xAirAccelMultiplier: 0.53
+  slidingDecel: 0.82
+  slideCooldown: 0.6
   groundLayer:
     serializedVersion: 2
     m_Bits: 64

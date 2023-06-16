@@ -27,7 +27,12 @@ public class IndyFall : PlayerBaseState
         //TRANSITION to IDLE/RUNNING
         if (pCon.isGrounded)
         {
-            if (pCon.horizontal == 0)
+            if(pCon.holdingSlide && Mathf.Abs(pCon.rb.velocity.x) > 0f && !stateHandler.slideOnCooldown)
+            {
+                stateHandler.StartSlideCooldown();
+                stateHandler.SwitchState(stateHandler.slideState);
+            }
+            else if (pCon.horizontal == 0)
             {
                 stateHandler.SwitchState(stateHandler.idleState);
             }

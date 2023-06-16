@@ -23,4 +23,14 @@ public abstract class PlayerBaseState : BaseState<PlayerStateHandler>, IPlayerIn
     public virtual void Jump(PlayerStateHandler stateHandler)
     {
     }
+
+    public virtual void Slide(PlayerStateHandler stateHandler)
+    {
+
+    }
+
+    public virtual void SlideCancel (PlayerStateHandler stateHandler)
+    {
+
+    }
 }

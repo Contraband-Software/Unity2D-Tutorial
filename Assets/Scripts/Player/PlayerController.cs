@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Player Component References")]
     public Rigidbody2D rb;
-    [SerializeField] SpriteRenderer spriteRend;
+    public SpriteRenderer spriteRend;
     public Animator anim;
 
     [Header("Player Settings")]
@@ -17,9 +17,16 @@ public class PlayerController : MonoBehaviour
     public float jumpingPower;
     public float downwardAccel;
     public float upwardDecel;
+    [Space(10)]
     public float xAirDecelMultiplier;
     public float xAirAccelMultiplier;
+    [Space(10)]
+    public float slidingDecel;
     public float horizontal { get; private set; }
+    public bool holdingSlide { get; private set; }
+
+    [Header("Cooldowns")]
+    public float slideCooldown = 0.5f;
 
     [Header("Grounding")]
     [SerializeField] LayerMask groundLayer;
@@ -40,7 +47,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        AnimationControl();
+        
     }
 
     #region PLAYER_CONTROLS
@@ -57,22 +64,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Slide(InputAction.CallbackContext context)
+    {
+        if(context.ReadValue<float>() == 1f)
+        {
+            stateHandler.HandleSlide();
+            holdingSlide = true;
+        }
+        if (context.canceled)
+        {
+            stateHandler.HandleSlideCancel();
+            holdingSlide = false;
+        }
+    }
+
     public bool IsGrounded()
     {
         return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(1f, 0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
     }
     #endregion
-
-    private void AnimationControl()
-    {
-        //flip sprite based on facing direction
-        if (horizontal > 0)
-        {
-            spriteRend.flipX = false;
-        }
-        else if (horizontal < 0)
-        {
-            spriteRend.flipX = true;
-        }
-    }
 }
