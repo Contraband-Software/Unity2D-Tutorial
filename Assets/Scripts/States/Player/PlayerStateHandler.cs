@@ -7,12 +7,21 @@ using UnityEngine;
 /// Store all information states need in the StateHandler rather than
 /// passing all information to each state.
 /// </summary>
-
+/// 
+[System.Serializable]
+public struct ColliderSize
+{
+    public Vector2 offset;
+    public Vector2 size;
+}
 public class PlayerStateHandler : StateHandler
 {
+
     PlayerBaseState currentState;
+
     //reference to player controller
     public PlayerController pCon;
+    public BoxCollider2D col;
 
     //Define all states
     public IndyIdle idleState { get; private set; }
@@ -21,12 +30,18 @@ public class PlayerStateHandler : StateHandler
     public IndyFall fallState { get; private set; }
     public IndySlide slideState { get; private set; }
 
+    //collider sizes for each state
+    [Header("State Collider Sizes")]
+    public ColliderSize idleCollider;
+    public ColliderSize slideCollider;
+
     //cooldowns
     public bool slideOnCooldown { get; private set; } = false;
 
     public void Initialize(PlayerController playerController)
     {
         pCon = playerController;
+        col = playerController.gameObject.GetComponent<BoxCollider2D>();
         idleState = new IndyIdle(pCon);
         runState = new IndyRun(pCon);
         jumpState = new IndyJump(pCon);

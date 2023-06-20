@@ -13,12 +13,17 @@ public class IndySlide : PlayerBaseState
         //play animation
         pCon.anim.Play("Slide");
         Debug.Log("ENTER SLIDE");
+
         //set smaller hitbox
+        stateHandler.col.offset = stateHandler.slideCollider.offset;
+        stateHandler.col.size = stateHandler.slideCollider.size;
     }
 
     public override void ExitState(PlayerStateHandler stateHandler)
     {
-        //reset hitbox
+        //reset hitbox to idle
+        stateHandler.col.offset = stateHandler.idleCollider.offset;
+        stateHandler.col.size = stateHandler.idleCollider.size;
     }
 
     public override void FixedUpdateState(PlayerStateHandler stateHandler)
