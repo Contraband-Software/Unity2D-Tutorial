@@ -29,6 +29,7 @@ public class PlayerStateHandler : StateHandler
     public IndyJump jumpState { get; private set; }
     public IndyFall fallState { get; private set; }
     public IndySlide slideState { get; private set; }
+    public IndyRope ropeState { get; private set; }
 
     //collider sizes for each state
     [Header("State Collider Sizes")]
@@ -47,6 +48,7 @@ public class PlayerStateHandler : StateHandler
         jumpState = new IndyJump(pCon);
         fallState = new IndyFall(pCon);
         slideState = new IndySlide(pCon);
+        ropeState = new IndyRope(pCon);
         currentState = idleState;
         currentState.EnterState(this);
     }
@@ -98,6 +100,16 @@ public class PlayerStateHandler : StateHandler
     public void HandleSlideCancel()
     {
         currentState.SlideCancel(this);
+    }
+
+    public void HandleTriggerEnter(Collider2D collision)
+    {
+        currentState.OnTriggerEnter2D(this, collision);
+    }
+
+    public void HandleRopeDetach()
+    {
+        currentState.RopeDetach(this);
     }
     #endregion
 

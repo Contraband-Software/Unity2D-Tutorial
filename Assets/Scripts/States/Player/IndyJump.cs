@@ -3,10 +3,7 @@ using UnityEngine;
 
 public class IndyJump : PlayerBaseState
 {
-    public IndyJump(PlayerController pCon)
-    {
-        this.pCon = pCon;
-    }
+    public IndyJump(PlayerController pCon) : base(pCon) { }
 
     public override void EnterState(PlayerStateHandler stateHandler)
     {
@@ -76,6 +73,24 @@ public class IndyJump : PlayerBaseState
 
         //Convert this to a vector and apply to rigidbody
         pCon.rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
+    }
+    #endregion
+
+    #region COLLISION
+    public override void OnTriggerEnter2D(PlayerStateHandler stateHandler, Collider2D collision)
+    {
+        if (collision.CompareTag("Rope"))
+        {
+            //check conditions for entering rope state
+            GameObject ropeCollided = collision.transform.parent.gameObject;
+            if(pCon.ropeLastAttached == null || ropeCollided != pCon.ropeLastAttached)
+            {
+                Rigidbody2D ropeSegmentRb = collision.GetComponent<Rigidbody2D>();
+                pCon.AttachToRopeSegment(ropeSegmentRb);
+
+                stateHandler.SwitchState(stateHandler.ropeState);
+            }
+        }
     }
     #endregion
 }

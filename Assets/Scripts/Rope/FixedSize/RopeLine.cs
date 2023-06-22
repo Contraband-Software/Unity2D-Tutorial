@@ -9,7 +9,7 @@ public class RopeLine : MonoBehaviour
     LineRenderer lineRenderer;
     private enum PlotMode { AVERAGE, ALL, COMBINED}
     [SerializeField] PlotMode plotMode = PlotMode.ALL;
-    [SerializeField] RopeLinePoint[] ropeLinePoints;
+    public RopeLinePoint[] ropeLinePoints;
 
     private void Start()
     {

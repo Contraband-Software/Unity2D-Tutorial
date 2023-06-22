@@ -44,6 +44,14 @@
                     "expectedControlType": "Digital",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "RopeDetach",
+                    "type": "Button",
+                    "id": "6415e15a-7b16-4efd-aca6-1bcaec57f456",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -308,6 +316,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Slide",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "afc951f3-3fe3-4a5d-9691-2806ceba687c",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "RopeDetach",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

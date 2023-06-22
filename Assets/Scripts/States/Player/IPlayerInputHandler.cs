@@ -6,4 +6,6 @@ public interface IPlayerInputHandler
     void Slide(PlayerStateHandler stateHandler);
 
     void SlideCancel(PlayerStateHandler stateHandler);
+
+    void RopeDetach(PlayerStateHandler stateHandler);
 }

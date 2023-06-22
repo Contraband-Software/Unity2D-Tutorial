@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 104482533}
   m_Layer: 7
   m_Name: Segment (2)
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -286,7 +286,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104482527}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.671, z: 2.080418}
+  m_LocalPosition: {x: 0, y: -0.581, z: 2.080418}
   m_LocalScale: {x: 0.24, y: 0.56, z: 1}
   m_Children: []
   m_Father: {fileID: 1555436036}
@@ -302,7 +302,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.50000006}
@@ -322,7 +322,7 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
+  m_Anchor: {x: 0, y: 0.5}
   m_ConnectedAnchor: {x: 0, y: -1}
   m_UseMotor: 0
   m_Motor:
@@ -344,8 +344,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 0.63
+  m_LinearDrag: 0.65
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 330024085}
   m_Layer: 7
   m_Name: Segment (3)
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -445,7 +445,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330024079}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.305, z: 2.080418}
+  m_LocalPosition: {x: 0, y: -1.151, z: 2.080418}
   m_LocalScale: {x: 0.24, y: 0.56, z: 1}
   m_Children: []
   m_Father: {fileID: 1555436036}
@@ -461,7 +461,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.50000006}
@@ -481,7 +481,7 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
+  m_Anchor: {x: 0, y: 0.5}
   m_ConnectedAnchor: {x: 0, y: -1}
   m_UseMotor: 0
   m_Motor:
@@ -503,8 +503,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 0.63
+  m_LinearDrag: 0.65
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -591,7 +591,7 @@ GameObject:
   - component: {fileID: 386470175}
   m_Layer: 7
   m_Name: Segment (4)
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -618,7 +618,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.50000006}
@@ -638,8 +638,8 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: -2}
+  m_Anchor: {x: 0, y: 1}
+  m_ConnectedAnchor: {x: 0, y: -1}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -943,7 +943,7 @@ GameObject:
   - component: {fileID: 599294733}
   m_Layer: 7
   m_Name: Segment (7)
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -960,8 +960,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 0.63
+  m_LinearDrag: 0.65
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -991,7 +991,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.50000006}
@@ -1011,7 +1011,7 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
+  m_Anchor: {x: 0, y: 0.5}
   m_ConnectedAnchor: {x: 0, y: -1}
   m_UseMotor: 0
   m_Motor:
@@ -1080,7 +1080,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599294731}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.956, z: 2.080418}
+  m_LocalPosition: {x: 0, y: -3.463, z: 2.080418}
   m_LocalScale: {x: 0.24, y: 0.56, z: 1}
   m_Children: []
   m_Father: {fileID: 1555436036}
@@ -1256,7 +1256,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705881160}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.7, y: 4.69, z: -2.080418}
+  m_LocalPosition: {x: -7.54, y: 4.78, z: -2.080418}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1550790060}
@@ -1283,7 +1283,7 @@ GameObject:
   - component: {fileID: 793723744}
   m_Layer: 7
   m_Name: Segment (1)
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1319,7 +1319,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.50000006}
@@ -1442,7 +1442,7 @@ GameObject:
   - component: {fileID: 822793640}
   m_Layer: 7
   m_Name: Segment (5)
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1459,8 +1459,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 0.63
+  m_LinearDrag: 0.65
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -1490,7 +1490,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.50000006}
@@ -1510,7 +1510,7 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
+  m_Anchor: {x: 0, y: 0.5}
   m_ConnectedAnchor: {x: 0, y: -1}
   m_UseMotor: 0
   m_Motor:
@@ -1579,7 +1579,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822793638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.956, z: 2.080418}
+  m_LocalPosition: {x: 0, y: -2.307, z: 2.080418}
   m_LocalScale: {x: 0.24, y: 0.56, z: 1}
   m_Children: []
   m_Father: {fileID: 1555436036}
@@ -1601,7 +1601,7 @@ GameObject:
   - component: {fileID: 838011943}
   m_Layer: 7
   m_Name: Segment (1)
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1654,7 +1654,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.50000006}
@@ -1672,8 +1672,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 0.63
+  m_LinearDrag: 0.65
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -1884,7 +1884,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965208754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 1.87, z: -2.080418}
+  m_LocalPosition: {x: -8.87, y: 4.79, z: -2.080418}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1529118457}
@@ -2306,7 +2306,7 @@ GameObject:
   - component: {fileID: 1410017549}
   m_Layer: 7
   m_Name: Segment (2)
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2342,7 +2342,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.50000006}
@@ -2362,8 +2362,8 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: -2}
+  m_Anchor: {x: 0, y: 1}
+  m_ConnectedAnchor: {x: 0, y: -1}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -2617,7 +2617,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.25, y: 1.87}
+  m_ConnectedAnchor: {x: -8.87, y: 4.79}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -2656,7 +2656,7 @@ GameObject:
   - component: {fileID: 1530733288}
   m_Layer: 7
   m_Name: Segment (4)
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2683,7 +2683,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.50000006}
@@ -2815,6 +2815,8 @@ GameObject:
   - component: {fileID: 1541672344}
   - component: {fileID: 1541672346}
   - component: {fileID: 1541672345}
+  - component: {fileID: 1541672347}
+  - component: {fileID: 1541672348}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2908,7 +2910,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!61 &1541672342
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3056,6 +3058,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4fd2564e-983f-45d2-920d-362a5122d334
     m_ActionName: Player/Slide[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1541672344}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: DetachFromRope
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6415e15a-7b16-4efd-aca6-1bcaec57f456
+    m_ActionName: Player/RopeDetach[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -3091,6 +3109,14 @@ MonoBehaviour:
     m_Bits: 64
   groundCheck: {fileID: 695679438}
   stateHandler: {fileID: 1541672346}
+  ropeLastAttached: {fileID: 0}
+  playerHingeJoint: {fileID: 1541672347}
+  playerFootHingeJoint: {fileID: 1541672348}
+  attachedRopeSegmentRb: {fileID: 0}
+  attachedRopeSegmentRbFoot: {fileID: 0}
+  lowerRopeSegmentRb: {fileID: 0}
+  ropeSwingAccelMultiplier: 10.9
+  simulatedMassOnRope: 8
 --- !u!95 &1541672345
 Animator:
   serializedVersion: 3
@@ -3130,6 +3156,54 @@ MonoBehaviour:
   slideCollider:
     offset: {x: 0, y: -0.1851373}
     size: {x: 1, y: 0.6609753}
+--- !u!233 &1541672347
+HingeJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541672338}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0.33}
+  m_ConnectedAnchor: {x: -1.79, y: 0.87}
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 0
+  m_AngleLimits:
+    m_LowerAngle: 60
+    m_UpperAngle: -60
+--- !u!233 &1541672348
+HingeJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541672338}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: -1.79, y: 0.21}
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 0
+  m_AngleLimits:
+    m_LowerAngle: 60
+    m_UpperAngle: -60
 --- !u!1 &1550790057
 GameObject:
   m_ObjectHideFlags: 0
@@ -3184,7 +3258,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 3.7, y: 4.69}
+  m_ConnectedAnchor: {x: -7.54, y: 4.78}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -3224,7 +3298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!120 &1555436035
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -3329,7 +3403,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555436034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.35, y: 4.55, z: -2.080418}
+  m_LocalPosition: {x: 2.05, y: 3.09, z: -2.080418}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1576408152}
@@ -3356,7 +3430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbaf6af058da2c14bb1abf6275410434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plotMode: 0
+  plotMode: 2
   ropeLinePoints:
   - {fileID: 838011943}
   - {fileID: 104482533}
@@ -3508,7 +3582,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -4.35, y: 4.55}
+  m_ConnectedAnchor: {x: 2.05, y: 3.11}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -3590,7 +3664,7 @@ GameObject:
   - component: {fileID: 1591880950}
   m_Layer: 7
   m_Name: Segment (8)
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3603,7 +3677,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591880948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.956, z: 2.080418}
+  m_LocalPosition: {x: 0, y: -4.051, z: 2.080418}
   m_LocalScale: {x: 0.24, y: 0.56, z: 1}
   m_Children: []
   m_Father: {fileID: 1555436036}
@@ -3631,7 +3705,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.50000006}
@@ -3651,7 +3725,7 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
+  m_Anchor: {x: 0, y: 0.5}
   m_ConnectedAnchor: {x: 0, y: -1}
   m_UseMotor: 0
   m_Motor:
@@ -3673,8 +3747,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 0.63
+  m_LinearDrag: 0.65
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -3915,7 +3989,7 @@ GameObject:
   - component: {fileID: 1712217417}
   m_Layer: 7
   m_Name: Segment (3)
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3951,7 +4025,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.50000006}
@@ -3971,8 +4045,8 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: -2}
+  m_Anchor: {x: 0, y: 1}
+  m_ConnectedAnchor: {x: 0, y: -1}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -4256,7 +4330,7 @@ GameObject:
   - component: {fileID: 1826294384}
   m_Layer: 7
   m_Name: Segment (3)
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4292,7 +4366,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.50000006}
@@ -4561,7 +4635,7 @@ GameObject:
   - component: {fileID: 2010804498}
   m_Layer: 7
   m_Name: Segment (1)
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4597,7 +4671,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.50000006}
@@ -4777,7 +4851,7 @@ GameObject:
   - component: {fileID: 2093200797}
   m_Layer: 7
   m_Name: Segment (6)
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4794,8 +4868,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 0.63
+  m_LinearDrag: 0.65
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -4825,7 +4899,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.50000006}
@@ -4845,7 +4919,7 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
+  m_Anchor: {x: 0, y: 0.5}
   m_ConnectedAnchor: {x: 0, y: -1}
   m_UseMotor: 0
   m_Motor:
@@ -4914,7 +4988,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2093200795}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.956, z: 2.080418}
+  m_LocalPosition: {x: 0, y: -2.882, z: 2.080418}
   m_LocalScale: {x: 0.24, y: 0.56, z: 1}
   m_Children: []
   m_Father: {fileID: 1555436036}
@@ -4936,7 +5010,7 @@ GameObject:
   - component: {fileID: 2120551046}
   m_Layer: 7
   m_Name: Segment (2)
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4972,7 +5046,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.50000006}
@@ -5095,7 +5169,7 @@ GameObject:
   - component: {fileID: 2137309846}
   m_Layer: 7
   m_Name: Segment (4)
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5108,7 +5182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137309840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.956, z: 2.080418}
+  m_LocalPosition: {x: 0, y: -1.726, z: 2.080418}
   m_LocalScale: {x: 0.24, y: 0.56, z: 1}
   m_Children: []
   m_Father: {fileID: 1555436036}
@@ -5124,7 +5198,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.50000006}
@@ -5144,7 +5218,7 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
+  m_Anchor: {x: 0, y: 0.5}
   m_ConnectedAnchor: {x: 0, y: -1}
   m_UseMotor: 0
   m_Motor:
@@ -5166,8 +5240,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 0.63
+  m_LinearDrag: 0.65
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}

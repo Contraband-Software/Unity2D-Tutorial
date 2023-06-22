@@ -1,8 +1,15 @@
 using UnityEngine;
 
-public abstract class PlayerBaseState : BaseState<PlayerStateHandler>, IPlayerInputHandler
+public abstract class PlayerBaseState : BaseState<PlayerStateHandler>,
+    IPlayerInputHandler,
+    IStateCollisionHandler<PlayerStateHandler>
 {
     protected PlayerController pCon;
+
+    protected PlayerBaseState(PlayerController pCon)
+    {
+        this.pCon = pCon;
+    }
 
     /// <summary>
     /// What you do in the state per frame
@@ -32,5 +39,14 @@ public abstract class PlayerBaseState : BaseState<PlayerStateHandler>, IPlayerIn
     public virtual void SlideCancel (PlayerStateHandler stateHandler)
     {
 
+    }
+
+    public virtual void RopeDetach(PlayerStateHandler stateHandler)
+    {
+
+    }
+
+    public virtual void OnTriggerEnter2D(PlayerStateHandler stateHandler, Collider2D collision)
+    {
     }
 }

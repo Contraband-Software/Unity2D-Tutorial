@@ -2,11 +2,7 @@ using UnityEngine;
 
 public class IndySlide : PlayerBaseState
 {
-    private enum HorizontalInput { ONENTRY, BLANK, RETAPPED}
-    public IndySlide(PlayerController pCon)
-    {
-        this.pCon = pCon;
-    }
+    public IndySlide(PlayerController pCon) : base(pCon) { }
 
     public override void EnterState(PlayerStateHandler stateHandler)
     {

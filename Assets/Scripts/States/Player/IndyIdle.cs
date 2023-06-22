@@ -2,10 +2,7 @@ using UnityEngine;
 
 public class IndyIdle : PlayerBaseState
 {
-    public IndyIdle(PlayerController pCon)
-    {
-        this.pCon = pCon;
-    }
+    public IndyIdle(PlayerController pCon) : base(pCon) { }
 
     public override void EnterState(PlayerStateHandler stateHandler)
     {

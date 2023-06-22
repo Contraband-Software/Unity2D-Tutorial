@@ -2,10 +2,7 @@ using UnityEngine;
 
 public class IndyRun : PlayerBaseState
 {
-    public IndyRun(PlayerController pCon)
-    {
-        this.pCon = pCon;
-    }
+    public IndyRun(PlayerController pCon) : base(pCon) { }
 
     public override void EnterState(PlayerStateHandler stateHandler)
     {
