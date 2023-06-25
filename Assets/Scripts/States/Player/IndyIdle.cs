@@ -4,11 +4,11 @@ public class IndyIdle : PlayerBaseState
 {
     public IndyIdle(PlayerController pCon) : base(pCon) { }
 
-    public override void EnterState(PlayerStateHandler stateHandler)
+    public override void EnterState()
     {
         Debug.Log("ENTER IDLE");
     }
-    public override void ExitState(PlayerStateHandler stateHandler)
+    public override void ExitState()
     {
     }
 

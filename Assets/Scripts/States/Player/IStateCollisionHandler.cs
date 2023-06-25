@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public interface IStateCollisionHandler<T> where T : StateHandler
+public interface IStateCollisionHandler
 {
-    void OnTriggerEnter2D(T stateHandler, Collider2D collision);
+    void OnTriggerEnter2D(PlayerStateHandler stateHandler, Collider2D collision);
 
-    void OnCollisionEnter2D(T stateHandler, Collision2D collision);
+    void OnCollisionEnter2D(PlayerStateHandler stateHandler, Collision2D collision);
 }

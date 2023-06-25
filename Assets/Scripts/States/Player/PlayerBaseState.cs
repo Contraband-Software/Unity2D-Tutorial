@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public abstract class PlayerBaseState : BaseState<PlayerStateHandler>,
+public abstract class PlayerBaseState : BaseState,
     IPlayerInputHandler,
-    IStateCollisionHandler<PlayerStateHandler>
+    IStateCollisionHandler
 {
     protected PlayerController pCon;
 

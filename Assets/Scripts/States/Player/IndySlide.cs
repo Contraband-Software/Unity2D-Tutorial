@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class IndySlide : PlayerBaseState
 {
-    public IndySlide(PlayerController pCon) : base(pCon) { }
+    PlayerStateHandler stateHandler;
+    public IndySlide(PlayerController pCon, PlayerStateHandler stateHandler) : base(pCon) {
+        this.stateHandler = stateHandler;
+    }
 
-    public override void EnterState(PlayerStateHandler stateHandler)
+    public override void EnterState()
     {
         //play animation
         pCon.anim.Play("Slide");
@@ -15,7 +18,7 @@ public class IndySlide : PlayerBaseState
         stateHandler.col.size = stateHandler.slideCollider.size;
     }
 
-    public override void ExitState(PlayerStateHandler stateHandler)
+    public override void ExitState()
     {
         //reset hitbox to idle
         stateHandler.col.offset = stateHandler.idleCollider.offset;

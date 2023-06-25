@@ -5,13 +5,13 @@ public class IndyJump : PlayerBaseState
 {
     public IndyJump(PlayerController pCon) : base(pCon) { }
 
-    public override void EnterState(PlayerStateHandler stateHandler)
+    public override void EnterState()
     {
         Debug.Log("ENTER JUMP");
         pCon.rb.velocity = new Vector2(pCon.rb.velocity.x, pCon.jumpingPower);
         pCon.anim.Play("Jump");
     }
-    public override void ExitState(PlayerStateHandler stateHandler)
+    public override void ExitState()
     {
     }
 

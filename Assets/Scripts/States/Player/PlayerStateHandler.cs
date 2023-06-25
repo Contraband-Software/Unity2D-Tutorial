@@ -14,11 +14,8 @@ public struct ColliderSize
     public Vector2 offset;
     public Vector2 size;
 }
-public class PlayerStateHandler : StateHandler
+public class PlayerStateHandler : StateHandler<PlayerBaseState>
 {
-
-    PlayerBaseState currentState;
-
     //reference to player controller
     public PlayerController pCon;
     public BoxCollider2D col;
@@ -47,10 +44,10 @@ public class PlayerStateHandler : StateHandler
         runState = new IndyRun(pCon);
         jumpState = new IndyJump(pCon);
         fallState = new IndyFall(pCon);
-        slideState = new IndySlide(pCon);
+        slideState = new IndySlide(pCon, this);
         ropeState = new IndyRope(pCon);
         currentState = idleState;
-        currentState.EnterState(this);
+        currentState.EnterState();
     }
 
 
@@ -64,11 +61,11 @@ public class PlayerStateHandler : StateHandler
         currentState.FixedUpdateState(this);
     }
 
-    public void SwitchState(PlayerBaseState newState)
+    public override void SwitchState(PlayerBaseState newState)
     {
-        currentState.ExitState(this);
+        currentState.ExitState();
         currentState = newState;
-        currentState.EnterState(this);
+        currentState.EnterState();
     }
 
     private void AnimationControl()

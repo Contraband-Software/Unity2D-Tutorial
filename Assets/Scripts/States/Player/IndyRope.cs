@@ -4,7 +4,7 @@ public class IndyRope : PlayerBaseState
 {
     public IndyRope(PlayerController pCon) : base(pCon) { }
     private float preEntryMass;
-    public override void EnterState(PlayerStateHandler stateHandler)
+    public override void EnterState()
     {
         Debug.Log("ENTER ROPE");
         preEntryMass = pCon.rb.mass;
@@ -12,7 +12,7 @@ public class IndyRope : PlayerBaseState
         pCon.anim.Play("Rope");
     }
 
-    public override void ExitState(PlayerStateHandler stateHandler)
+    public override void ExitState()
     {
         pCon.rb.mass = preEntryMass;
     }

@@ -4,12 +4,12 @@ public class IndyRun : PlayerBaseState
 {
     public IndyRun(PlayerController pCon) : base(pCon) { }
 
-    public override void EnterState(PlayerStateHandler stateHandler)
+    public override void EnterState()
     {
         Debug.Log("ENTER RUN");
     }
 
-    public override void ExitState(PlayerStateHandler stateHandler)
+    public override void ExitState()
     {
     }
 

@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class IndyFall : PlayerBaseState
 {
-    public IndyFall(PlayerController pCon) : base(pCon) { }
+    public IndyFall(PlayerController pCon) : base(pCon){ }
 
-    public override void EnterState(PlayerStateHandler stateHandler)
+    public override void EnterState()
     {
         Debug.Log("ENTER FALL");
         pCon.anim.Play("JumpFall");
     }
-    public override void ExitState(PlayerStateHandler stateHandler)
+    public override void ExitState()
     {
     }
 
