@@ -107,6 +107,11 @@ public class PlayerStateHandler : StateHandler
         currentState.OnTriggerEnter2D(this, collision);
     }
 
+    public void HandleCollisionEnter(Collision2D collision)
+    {
+        currentState.OnCollisionEnter2D(this, collision);
+    }
+
     public void HandleRopeDetach()
     {
         currentState.RopeDetach(this);

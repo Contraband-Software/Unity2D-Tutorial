@@ -102,6 +102,10 @@ public class PlayerController : MonoBehaviour
     {
         stateHandler.HandleTriggerEnter(collision);
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        stateHandler.HandleCollisionEnter(collision);
+    }
     #endregion
 
     #region ROPE
@@ -111,6 +115,8 @@ public class PlayerController : MonoBehaviour
         {
             attachedToRope = true;
             ropeLastAttached = ropeSegmentRb.transform.parent.gameObject;
+
+            ropeLastAttached.GetComponent<RopeSwingable>().OnPlayerAttach(this);
 
             //attach hinge
             attachedRopeSegmentRb = ropeSegmentRb;
@@ -150,6 +156,8 @@ public class PlayerController : MonoBehaviour
         if (context.performed && attachedToRope)
         {
             attachedToRope = false;
+            ropeLastAttached.GetComponent<RopeSwingable>().OnPlayerDetach();
+            ropeLastAttached = null;
 
             //disable hinge
             attachedRopeSegmentRb = null;

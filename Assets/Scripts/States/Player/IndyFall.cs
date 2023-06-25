@@ -75,15 +75,16 @@ public class IndyFall : PlayerBaseState
     #endregion
 
     #region COLLISION
-    public override void OnTriggerEnter2D(PlayerStateHandler stateHandler, Collider2D collision)
+    public override void OnTriggerEnter2D(PlayerStateHandler stateHandler, Collider2D collider)
     {
-        if (collision.CompareTag("Rope"))
+        if (collider.CompareTag("Rope"))
         {
+            Debug.Log("hit ROPE");
             //check conditions for entering rope state
-            GameObject ropeCollided = collision.transform.parent.gameObject;
+            GameObject ropeCollided = collider.transform.parent.gameObject;
             if (pCon.ropeLastAttached == null || ropeCollided != pCon.ropeLastAttached)
             {
-                Rigidbody2D ropeSegmentRb = collision.GetComponent<Rigidbody2D>();
+                Rigidbody2D ropeSegmentRb = collider.transform.GetComponent<Rigidbody2D>();
                 pCon.AttachToRopeSegment(ropeSegmentRb);
 
                 stateHandler.SwitchState(stateHandler.ropeState);

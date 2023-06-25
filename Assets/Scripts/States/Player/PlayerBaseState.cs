@@ -49,4 +49,8 @@ public abstract class PlayerBaseState : BaseState<PlayerStateHandler>,
     public virtual void OnTriggerEnter2D(PlayerStateHandler stateHandler, Collider2D collision)
     {
     }
+
+    public virtual void OnCollisionEnter2D(PlayerStateHandler stateHandler, Collision2D collision)
+    {
+    }
 }
