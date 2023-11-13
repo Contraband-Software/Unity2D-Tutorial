@@ -94,13 +94,10 @@ public class AwfulPlayerController2 : MonoBehaviour
     {
         //code for sliding without changing direction while doing so
     }
-
-
     private void Run()
     {
         rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
     }
-
     private void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
