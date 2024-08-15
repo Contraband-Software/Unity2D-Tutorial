@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Software.Contraband.StateMachines;
 
 /// <summary>
 /// Store all information states need in the StateHandler rather than
