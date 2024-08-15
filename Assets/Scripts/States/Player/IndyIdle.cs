@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class IndyIdle : PlayerBaseState
 {
-    public IndyIdle(PlayerController pCon) : base(pCon) { }
+    public IndyIdle(
+        PlayerController pCon, PlayerStateHandler stateHandler)
+        : base(pCon, stateHandler) { }
 
     public override void EnterState()
     {
@@ -12,7 +14,7 @@ public class IndyIdle : PlayerBaseState
     {
     }
 
-    public override void UpdateState(PlayerStateHandler stateHandler)
+    public override void UpdateState()
     {
         stateHandler.pCon.anim.Play("Idle");
 
@@ -29,12 +31,12 @@ public class IndyIdle : PlayerBaseState
         }
     }
 
-    public override void FixedUpdateState(PlayerStateHandler stateHandler)
+    public override void FixedUpdateState()
     {
         HorizontalVelocity();
     }
 
-    public override void Jump(PlayerStateHandler stateHandler)
+    public override void Jump()
     {
         if (stateHandler.pCon.isGrounded)
         {

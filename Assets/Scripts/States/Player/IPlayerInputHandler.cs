@@ -1,11 +1,11 @@
 using UnityEngine;
 public interface IPlayerInputHandler
 {
-    void Jump(PlayerStateHandler stateHandler);
+    void Jump();
 
-    void Slide(PlayerStateHandler stateHandler);
+    void Slide();
 
-    void SlideCancel(PlayerStateHandler stateHandler);
+    void SlideCancel();
 
-    void RopeDetach(PlayerStateHandler stateHandler);
+    void RopeDetach();
 }

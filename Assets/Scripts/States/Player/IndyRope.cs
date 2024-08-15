@@ -1,8 +1,11 @@
-using UnityEngine;
+ using UnityEngine;
 
 public class IndyRope : PlayerBaseState
 {
-    public IndyRope(PlayerController pCon) : base(pCon) { }
+    public IndyRope(
+        PlayerController pCon, PlayerStateHandler stateHandler)
+        : base(pCon, stateHandler) { }
+
     private float preEntryMass;
     public override void EnterState()
     {
@@ -17,13 +20,13 @@ public class IndyRope : PlayerBaseState
         pCon.rb.mass = preEntryMass;
     }
 
-    public override void FixedUpdateState(PlayerStateHandler stateHandler)
+    public override void FixedUpdateState()
     {
         VerticalVelocity();
         HorizontalVelocity();
     }
 
-    public override void UpdateState(PlayerStateHandler stateHandler)
+    public override void UpdateState()
     {
     }
 
@@ -65,7 +68,7 @@ public class IndyRope : PlayerBaseState
     #endregion
 
     #region DETACH
-    public override void RopeDetach(PlayerStateHandler stateHandler)
+    public override void RopeDetach()
     {
         stateHandler.SwitchState(stateHandler.jumpState);
     }

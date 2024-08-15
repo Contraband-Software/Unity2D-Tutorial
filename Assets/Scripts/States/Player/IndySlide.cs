@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class IndySlide : PlayerBaseState
 {
-    PlayerStateHandler stateHandler;
-    public IndySlide(PlayerController pCon, PlayerStateHandler stateHandler) : base(pCon) {
-        this.stateHandler = stateHandler;
+    public IndySlide(
+        PlayerController pCon, PlayerStateHandler stateHandler) 
+        : base(pCon, stateHandler) {
     }
 
     public override void EnterState()
@@ -25,7 +25,7 @@ public class IndySlide : PlayerBaseState
         stateHandler.col.size = stateHandler.idleCollider.size;
     }
 
-    public override void FixedUpdateState(PlayerStateHandler stateHandler)
+    public override void FixedUpdateState()
     {
         //no horizontal acceleration (cant change direction)
         //tending towards zero velocity
@@ -41,7 +41,7 @@ public class IndySlide : PlayerBaseState
         pCon.rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
     }
 
-    public override void UpdateState(PlayerStateHandler stateHandler)
+    public override void UpdateState()
     {
         //TRANSITION TO FALLING
         if (!pCon.isGrounded && pCon.rb.velocity.y < 0)
@@ -62,7 +62,7 @@ public class IndySlide : PlayerBaseState
     /// on horizontal inputs
     /// </summary>
     /// <param name="stateHandler"></param>
-    public override void SlideCancel(PlayerStateHandler stateHandler)
+    public override void SlideCancel()
     {
         if(Mathf.Abs(pCon.horizontal) != 0)
         {
@@ -78,7 +78,7 @@ public class IndySlide : PlayerBaseState
     /// On jump, slide gets cancelled implicitly
     /// </summary>
     /// <param name="stateHandler"></param>
-    public override void Jump(PlayerStateHandler stateHandler)
+    public override void Jump()
     {
         stateHandler.SwitchState(stateHandler.jumpState);
     }

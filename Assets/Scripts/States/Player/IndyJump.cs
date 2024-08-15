@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class IndyJump : PlayerBaseState
 {
-    public IndyJump(PlayerController pCon) : base(pCon) { }
+    public IndyJump(
+        PlayerController pCon, PlayerStateHandler stateHandler)
+        : base(pCon, stateHandler) { }
 
     public override void EnterState()
     {
@@ -15,7 +17,7 @@ public class IndyJump : PlayerBaseState
     {
     }
 
-    public override void UpdateState(PlayerStateHandler stateHandler)
+    public override void UpdateState()
     {
         //TRANSITION TO FALLING
         if (pCon.rb.velocity.y < 0)
@@ -37,7 +39,7 @@ public class IndyJump : PlayerBaseState
         }
     }
 
-    public override void FixedUpdateState(PlayerStateHandler stateHandler)
+    public override void FixedUpdateState()
     {
         VerticalVelocity();
         HorizontalVelocity();
@@ -77,7 +79,7 @@ public class IndyJump : PlayerBaseState
     #endregion
 
     #region COLLISION
-    public override void OnTriggerEnter2D(PlayerStateHandler stateHandler, Collider2D collider)
+    public override void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.CompareTag("Rope"))
         {

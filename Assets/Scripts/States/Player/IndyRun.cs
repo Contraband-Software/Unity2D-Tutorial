@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class IndyRun : PlayerBaseState
 {
-    public IndyRun(PlayerController pCon) : base(pCon) { }
+    public IndyRun(
+        PlayerController pCon, PlayerStateHandler stateHandler)
+        : base(pCon, stateHandler) { }
 
     public override void EnterState()
     {
@@ -13,7 +15,7 @@ public class IndyRun : PlayerBaseState
     {
     }
 
-    public override void UpdateState(PlayerStateHandler stateHandler)
+    public override void UpdateState()
     {
         pCon.anim.Play("Run");
 
@@ -30,7 +32,7 @@ public class IndyRun : PlayerBaseState
         }
     }
 
-    public override void FixedUpdateState(PlayerStateHandler stateHandler)
+    public override void FixedUpdateState()
     {
         HorizontalVelocity();
     }
@@ -58,7 +60,7 @@ public class IndyRun : PlayerBaseState
     #endregion
 
     #region CONTROLS
-    public override void Jump(PlayerStateHandler stateHandler)
+    public override void Jump()
     {
         if (stateHandler.pCon.isGrounded)
         {
@@ -66,7 +68,7 @@ public class IndyRun : PlayerBaseState
         }
     }
 
-    public override void Slide(PlayerStateHandler stateHandler)
+    public override void Slide()
     {
         if (pCon.isGrounded && Mathf.Abs(pCon.rb.velocity.x) > 4f && !stateHandler.slideOnCooldown)
         {

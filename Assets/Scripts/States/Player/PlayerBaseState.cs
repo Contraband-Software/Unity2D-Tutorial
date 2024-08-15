@@ -5,52 +5,54 @@ public abstract class PlayerBaseState : BaseState,
     IStateCollisionHandler
 {
     protected PlayerController pCon;
+    protected PlayerStateHandler stateHandler;
 
-    protected PlayerBaseState(PlayerController pCon)
+    protected PlayerBaseState(PlayerController pCon, PlayerStateHandler stateHandler)
     {
         this.pCon = pCon;
+        this.stateHandler = stateHandler;
     }
 
     /// <summary>
     /// What you do in the state per frame
     /// </summary>
-    public abstract void UpdateState(PlayerStateHandler stateHandler);
+    public abstract void UpdateState();
 
     /// <summary>
     /// What you do in the state per fixed frame, 
     /// Reserved for physics essentially
     /// </summary>
     /// <param name="stateHandler"></param>
-    public abstract void FixedUpdateState(PlayerStateHandler stateHandler);
+    public abstract void FixedUpdateState();
 
     /// <summary>
     /// Allows handling a jump input event
     /// </summary>
     /// <param name="stateHandler"></param>
-    public virtual void Jump(PlayerStateHandler stateHandler)
+    public virtual void Jump()
     {
     }
 
-    public virtual void Slide(PlayerStateHandler stateHandler)
-    {
-
-    }
-
-    public virtual void SlideCancel (PlayerStateHandler stateHandler)
+    public virtual void Slide()
     {
 
     }
 
-    public virtual void RopeDetach(PlayerStateHandler stateHandler)
+    public virtual void SlideCancel ()
     {
 
     }
 
-    public virtual void OnTriggerEnter2D(PlayerStateHandler stateHandler, Collider2D collision)
+    public virtual void RopeDetach()
+    {
+
+    }
+
+    public virtual void OnTriggerEnter2D(Collider2D collision)
     {
     }
 
-    public virtual void OnCollisionEnter2D(PlayerStateHandler stateHandler, Collision2D collision)
+    public virtual void OnCollisionEnter2D(Collision2D collision)
     {
     }
 }

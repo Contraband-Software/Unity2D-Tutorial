@@ -40,12 +40,12 @@ public class PlayerStateHandler : StateHandler<PlayerBaseState>
     {
         pCon = playerController;
         col = playerController.gameObject.GetComponent<BoxCollider2D>();
-        idleState = new IndyIdle(pCon);
-        runState = new IndyRun(pCon);
-        jumpState = new IndyJump(pCon);
-        fallState = new IndyFall(pCon);
+        idleState = new IndyIdle(pCon, this);
+        runState = new IndyRun(pCon, this);
+        jumpState = new IndyJump(pCon, this);
+        fallState = new IndyFall(pCon, this);
         slideState = new IndySlide(pCon, this);
-        ropeState = new IndyRope(pCon);
+        ropeState = new IndyRope(pCon, this);
         currentState = idleState;
         currentState.EnterState();
     }
@@ -53,12 +53,12 @@ public class PlayerStateHandler : StateHandler<PlayerBaseState>
 
     void Update()
     {
-        currentState.UpdateState(this);
+        currentState.UpdateState();
         AnimationControl();
     }
     void FixedUpdate()
     {
-        currentState.FixedUpdateState(this);
+        currentState.FixedUpdateState();
     }
 
     public override void SwitchState(PlayerBaseState newState)
@@ -87,31 +87,31 @@ public class PlayerStateHandler : StateHandler<PlayerBaseState>
     #region PLAYER_CONTROL_INTERFACE
     public void HandleJump()
     {
-        currentState.Jump(this);
+        currentState.Jump();
     }
     public void HandleSlide()
     {
-        currentState.Slide(this);
+        currentState.Slide();
     }
 
     public void HandleSlideCancel()
     {
-        currentState.SlideCancel(this);
+        currentState.SlideCancel();
     }
 
     public void HandleTriggerEnter(Collider2D collision)
     {
-        currentState.OnTriggerEnter2D(this, collision);
+        currentState.OnTriggerEnter2D(collision);
     }
 
     public void HandleCollisionEnter(Collision2D collision)
     {
-        currentState.OnCollisionEnter2D(this, collision);
+        currentState.OnCollisionEnter2D(collision);
     }
 
     public void HandleRopeDetach()
     {
-        currentState.RopeDetach(this);
+        currentState.RopeDetach();
     }
     #endregion
 

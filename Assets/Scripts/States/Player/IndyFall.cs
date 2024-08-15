@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class IndyFall : PlayerBaseState
 {
-    public IndyFall(PlayerController pCon) : base(pCon){ }
+    public IndyFall(
+        PlayerController pCon, PlayerStateHandler stateHandler) 
+        : base(pCon, stateHandler){ }
 
     public override void EnterState()
     {
@@ -13,13 +15,13 @@ public class IndyFall : PlayerBaseState
     {
     }
 
-    public override void FixedUpdateState(PlayerStateHandler stateHandler)
+    public override void FixedUpdateState()
     {
         VerticalVelocity();
         HorizontalVelocity();
     }
 
-    public override void UpdateState(PlayerStateHandler stateHandler)
+    public override void UpdateState()
     {
         //TRANSITION to IDLE/RUNNING
         if (pCon.isGrounded)
@@ -75,7 +77,7 @@ public class IndyFall : PlayerBaseState
     #endregion
 
     #region COLLISION
-    public override void OnTriggerEnter2D(PlayerStateHandler stateHandler, Collider2D collider)
+    public override void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.CompareTag("Rope"))
         {
