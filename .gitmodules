@@ -1,0 +1,3 @@
+[submodule "Packages/ContraStateMachines"]
+	path = Packages/ContraStateMachines
+	url = https://github.com/Contraband-Software/ContraStateMachines

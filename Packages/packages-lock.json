@@ -269,7 +269,7 @@
       }
     },
     "software.contraband.statemachines": {
-      "version": "file:StateMachines",
+      "version": "file:ContraStateMachines",
       "depth": 0,
       "source": "embedded",
       "dependencies": {}
