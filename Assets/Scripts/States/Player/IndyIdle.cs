@@ -1,10 +1,12 @@
+using Software.Contraband.StateMachines;
 using UnityEngine;
 
 public class IndyIdle : PlayerBaseState
 {
-    public IndyIdle(
-        PlayerController pCon, PlayerStateHandler stateHandler)
-        : base(pCon, stateHandler) { }
+    protected override StateType GetStateInfo => StateType.Default;
+    
+    public IndyIdle(PlayerStateHandler stateHandler)
+        : base(stateHandler) { }
 
     public override void EnterState()
     {
@@ -19,15 +21,15 @@ public class IndyIdle : PlayerBaseState
         stateHandler.pCon.anim.Play("Idle");
 
         //TRANSITION TO FALLING
-        if (!pCon.isGrounded && pCon.rb.velocity.y < 0)
+        if (!stateHandler.pCon.isGrounded && stateHandler.pCon.rb.velocity.y < 0)
         {
-            stateHandler.SwitchState(stateHandler.fallState);
+            stateHandler.SwitchState(stateHandler.States[typeof(IndyFall)]);
         }
 
         //TRANSITION TO RUNNING
-        else if(pCon.isGrounded && pCon.horizontal != 0)
+        else if(stateHandler.pCon.isGrounded && stateHandler.pCon.horizontal != 0)
         {
-            stateHandler.SwitchState(stateHandler.runState);
+            stateHandler.SwitchState(stateHandler.States[typeof(IndyRun)]);
         }
     }
 
@@ -40,26 +42,26 @@ public class IndyIdle : PlayerBaseState
     {
         if (stateHandler.pCon.isGrounded)
         {
-            stateHandler.SwitchState(stateHandler.jumpState);
+            stateHandler.SwitchState(stateHandler.States[typeof(IndyJump)]);
         }
     }
 
     #region MOVEMENT_MANIPULATION
     private void HorizontalVelocity()
     {
-        float targetVelocity = pCon.horizontal * pCon.maxSpeed;
+        float targetVelocity = stateHandler.pCon.horizontal * stateHandler.pCon.maxSpeed;
         float acceleration;
 
         //apply normal acceleration/deceleration
-        acceleration = (Mathf.Abs(pCon.horizontal) > 0) ? pCon.xAccel : pCon.xDecel;
+        acceleration = (Mathf.Abs(stateHandler.pCon.horizontal) > 0) ? stateHandler.pCon.xAccel : stateHandler.pCon.xDecel;
 
         //Calculate difference between current velocity and desired velocity
-        float velocityDiff = targetVelocity - pCon.rb.velocity.x;
+        float velocityDiff = targetVelocity - stateHandler.pCon.rb.velocity.x;
         //Calculate force along x-axis to apply to the player
         float movement = velocityDiff * acceleration;
 
         //Convert this to a vector and apply to rigidbody
-        pCon.rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
+        stateHandler.pCon.rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
     }
     #endregion
 }

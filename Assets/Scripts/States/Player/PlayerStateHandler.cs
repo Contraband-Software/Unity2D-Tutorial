@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Software.Contraband.StateMachines;
 
@@ -9,25 +10,22 @@ using Software.Contraband.StateMachines;
 /// passing all information to each state.
 /// </summary>
 /// 
-[System.Serializable]
+[Serializable]
 public struct ColliderSize
 {
     public Vector2 offset;
     public Vector2 size;
 }
+
+[
+    RequireComponent(typeof(BoxCollider2D)),
+    RequireComponent(typeof(PlayerController))
+]
 public class PlayerStateHandler : StateHandler<PlayerBaseState>
 {
     //reference to player controller
     public PlayerController pCon;
     public BoxCollider2D col;
-
-    //Define all states
-    public IndyIdle idleState { get; private set; }
-    public IndyRun runState { get; private set; }
-    public IndyJump jumpState { get; private set; }
-    public IndyFall fallState { get; private set; }
-    public IndySlide slideState { get; private set; }
-    public IndyRope ropeState { get; private set; }
 
     //collider sizes for each state
     [Header("State Collider Sizes")]
@@ -37,41 +35,32 @@ public class PlayerStateHandler : StateHandler<PlayerBaseState>
     //cooldowns
     public bool slideOnCooldown { get; private set; } = false;
 
-    public void Initialize(PlayerController playerController)
+    protected override void Initialize()
     {
-        pCon = playerController;
-        col = playerController.gameObject.GetComponent<BoxCollider2D>();
-        idleState = new IndyIdle(pCon, this);
-        runState = new IndyRun(pCon, this);
-        jumpState = new IndyJump(pCon, this);
-        fallState = new IndyFall(pCon, this);
-        slideState = new IndySlide(pCon, this);
-        ropeState = new IndyRope(pCon, this);
-        currentState = idleState;
-        currentState.EnterState();
+        pCon = GetComponent<PlayerController>();
+        col = pCon.gameObject.GetComponent<BoxCollider2D>();
     }
-
 
     void Update()
     {
-        currentState.UpdateState();
+        CurrentState.UpdateState();
         AnimationControl();
     }
     void FixedUpdate()
     {
-        currentState.FixedUpdateState();
+        CurrentState.FixedUpdateState();
     }
 
     public override void SwitchState(PlayerBaseState newState)
     {
-        currentState.ExitState();
-        currentState = newState;
-        currentState.EnterState();
+        CurrentState.ExitState();
+        CurrentState = newState;
+        CurrentState.EnterState();
     }
 
     private void AnimationControl()
     {
-        if (currentState != slideState)
+        if (CurrentState != States[typeof(IndySlide)])
         {
             //flip sprite based on facing direction
             if (pCon.horizontal > 0)
@@ -88,31 +77,31 @@ public class PlayerStateHandler : StateHandler<PlayerBaseState>
     #region PLAYER_CONTROL_INTERFACE
     public void HandleJump()
     {
-        currentState.Jump();
+        CurrentState.Jump();
     }
     public void HandleSlide()
     {
-        currentState.Slide();
+        CurrentState.Slide();
     }
 
     public void HandleSlideCancel()
     {
-        currentState.SlideCancel();
+        CurrentState.SlideCancel();
     }
 
     public void HandleTriggerEnter(Collider2D collision)
     {
-        currentState.OnTriggerEnter2D(collision);
+        CurrentState.OnTriggerEnter2D(collision);
     }
 
     public void HandleCollisionEnter(Collision2D collision)
     {
-        currentState.OnCollisionEnter2D(collision);
+        CurrentState.OnCollisionEnter2D(collision);
     }
 
     public void HandleRopeDetach()
     {
-        currentState.RopeDetach();
+        CurrentState.RopeDetach();
     }
     #endregion
 

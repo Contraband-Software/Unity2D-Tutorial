@@ -3,15 +3,14 @@ using UnityEngine;
 
 public class IndyJump : PlayerBaseState
 {
-    public IndyJump(
-        PlayerController pCon, PlayerStateHandler stateHandler)
-        : base(pCon, stateHandler) { }
+    public IndyJump(PlayerStateHandler stateHandler)
+        : base(stateHandler) { }
 
     public override void EnterState()
     {
         Debug.Log("ENTER JUMP");
-        pCon.rb.velocity = new Vector2(pCon.rb.velocity.x, pCon.jumpingPower);
-        pCon.anim.Play("Jump");
+        stateHandler.pCon.rb.velocity = new Vector2(stateHandler.pCon.rb.velocity.x, stateHandler.pCon.jumpingPower);
+        stateHandler.pCon.anim.Play("Jump");
     }
     public override void ExitState()
     {
@@ -20,21 +19,22 @@ public class IndyJump : PlayerBaseState
     public override void UpdateState()
     {
         //TRANSITION TO FALLING
-        if (pCon.rb.velocity.y < 0)
+        if (stateHandler.pCon.rb.velocity.y < 0)
         {
-            stateHandler.SwitchState(stateHandler.fallState);
+            stateHandler.SwitchState(stateHandler.States[typeof(IndyFall)]);
         }
 
         //TRANSITION to IDLE/RUNNING
-        else if(pCon.isGrounded && pCon.rb.velocity.y == 0)
+        else if(stateHandler.pCon.isGrounded && stateHandler.pCon.rb.velocity.y == 0)
         {
-            if(pCon.horizontal == 0)
+            if(stateHandler.pCon.horizontal == 0)
             {
-                stateHandler.SwitchState(stateHandler.idleState);
+                stateHandler.SwitchState(stateHandler.States[typeof(IndyIdle)]);
+                
             }
             else
             {
-                stateHandler.SwitchState(stateHandler.runState);
+                stateHandler.SwitchState(stateHandler.States[typeof(IndyRun)]);
             }
         }
     }
@@ -49,32 +49,32 @@ public class IndyJump : PlayerBaseState
     private void VerticalVelocity()
     {
         //apply increased gravity
-        float acceleration = (pCon.rb.velocity.y < 0) ? pCon.upwardDecel : pCon.downwardAccel;
-        pCon.rb.velocity = new Vector2(pCon.rb.velocity.x, pCon.rb.velocity.y - acceleration);
+        float acceleration = (stateHandler.pCon.rb.velocity.y < 0) ? stateHandler.pCon.upwardDecel : stateHandler.pCon.downwardAccel;
+        stateHandler.pCon.rb.velocity = new Vector2(stateHandler.pCon.rb.velocity.x, stateHandler.pCon.rb.velocity.y - acceleration);
     }
 
     private void HorizontalVelocity()
     {
-        float targetVelocity = pCon.horizontal * pCon.maxSpeed;
+        float targetVelocity = stateHandler.pCon.horizontal * stateHandler.pCon.maxSpeed;
         float acceleration;
 
         //apply airborne multiplier
-        if (Mathf.Abs(pCon.horizontal) > 0)
+        if (Mathf.Abs(stateHandler.pCon.horizontal) > 0)
         {
-            acceleration = pCon.xAccel * pCon.xAirAccelMultiplier;
+            acceleration = stateHandler.pCon.xAccel * stateHandler.pCon.xAirAccelMultiplier;
         }
         else
         {
-            acceleration = pCon.xDecel * pCon.xAirDecelMultiplier;
+            acceleration = stateHandler.pCon.xDecel * stateHandler.pCon.xAirDecelMultiplier;
         }
 
         //Calculate difference between current velocity and desired velocity
-        float velocityDiff = targetVelocity - pCon.rb.velocity.x;
+        float velocityDiff = targetVelocity - stateHandler.pCon.rb.velocity.x;
         //Calculate force along x-axis to apply to thr player
         float movement = velocityDiff * acceleration;
 
         //Convert this to a vector and apply to rigidbody
-        pCon.rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
+        stateHandler.pCon.rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
     }
     #endregion
 
@@ -85,12 +85,12 @@ public class IndyJump : PlayerBaseState
         {
             //check conditions for entering rope state
             GameObject ropeCollided = collider.transform.parent.gameObject;
-            if(pCon.ropeLastAttached == null || ropeCollided != pCon.ropeLastAttached)
+            if(stateHandler.pCon.ropeLastAttached == null || ropeCollided != stateHandler.pCon.ropeLastAttached)
             {
                 Rigidbody2D ropeSegmentRb = collider.transform.GetComponent<Rigidbody2D>();
-                pCon.AttachToRopeSegment(ropeSegmentRb);
+                stateHandler.pCon.AttachToRopeSegment(ropeSegmentRb);
 
-                stateHandler.SwitchState(stateHandler.ropeState);
+                stateHandler.SwitchState(stateHandler.States[typeof(IndyRope)]);
             }
         }
     }

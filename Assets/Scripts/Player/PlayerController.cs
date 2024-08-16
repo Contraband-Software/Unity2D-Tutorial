@@ -49,11 +49,6 @@ public class PlayerController : MonoBehaviour
     public float ropeSwingAccelMultiplier;
     public float simulatedMassOnRope;
 
-    private void Start()
-    {
-        stateHandler.Initialize(this);
-    }
-
     private void FixedUpdate()
     {
         isGrounded = IsGrounded();

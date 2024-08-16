@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class IndySlide : PlayerBaseState
 {
-    public IndySlide(
-        PlayerController pCon, PlayerStateHandler stateHandler) 
-        : base(pCon, stateHandler) {
+    public IndySlide(PlayerStateHandler stateHandler) 
+        : base(stateHandler) {
     }
 
     public override void EnterState()
     {
         //play animation
-        pCon.anim.Play("Slide");
+        stateHandler.pCon.anim.Play("Slide");
         Debug.Log("ENTER SLIDE");
 
         //set smaller hitbox
@@ -30,29 +29,29 @@ public class IndySlide : PlayerBaseState
         //no horizontal acceleration (cant change direction)
         //tending towards zero velocity
         float targetVelocity = 0;
-        float acceleration = pCon.slidingDecel;
+        float acceleration = stateHandler.pCon.slidingDecel;
 
         //Calculate difference between current velocity and desired velocity
-        float velocityDiff = targetVelocity - pCon.rb.velocity.x;
+        float velocityDiff = targetVelocity - stateHandler.pCon.rb.velocity.x;
         //Calculate force along x-axis to apply to the player
         float movement = velocityDiff * acceleration;
 
         //Convert this to a vector and apply to rigidbody
-        pCon.rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
+        stateHandler.pCon.rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
     }
 
     public override void UpdateState()
     {
         //TRANSITION TO FALLING
-        if (!pCon.isGrounded && pCon.rb.velocity.y < 0)
+        if (!stateHandler.pCon.isGrounded && stateHandler.pCon.rb.velocity.y < 0)
         {
-            stateHandler.SwitchState(stateHandler.fallState);
+            stateHandler.SwitchState(stateHandler.States[typeof(IndyFall)]);
         }
 
         //TRANSITION TO IDLE WHEN VELOCITY REACHES NEAR ZERO
-        else if(pCon.isGrounded && Mathf.Abs(pCon.rb.velocity.x) < 0.6f)
+        else if(stateHandler.pCon.isGrounded && Mathf.Abs(stateHandler.pCon.rb.velocity.x) < 0.6f)
         {
-            stateHandler.SwitchState(stateHandler.idleState);
+            stateHandler.SwitchState(stateHandler.States[typeof(IndyIdle)]);
         }
     }
 
@@ -64,13 +63,13 @@ public class IndySlide : PlayerBaseState
     /// <param name="stateHandler"></param>
     public override void SlideCancel()
     {
-        if(Mathf.Abs(pCon.horizontal) != 0)
+        if(Mathf.Abs(stateHandler.pCon.horizontal) != 0)
         {
-            stateHandler.SwitchState(stateHandler.runState);
+            stateHandler.SwitchState(stateHandler.States[typeof(IndyRun)]);
         }
         else
         {
-            stateHandler.SwitchState(stateHandler.idleState);
+            stateHandler.SwitchState(stateHandler.States[typeof(IndyIdle)]);
         }
     }
 
@@ -80,7 +79,7 @@ public class IndySlide : PlayerBaseState
     /// <param name="stateHandler"></param>
     public override void Jump()
     {
-        stateHandler.SwitchState(stateHandler.jumpState);
+        stateHandler.SwitchState(stateHandler.States[typeof(IndyJump)]);
     }
     #endregion
 }

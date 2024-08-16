@@ -5,12 +5,10 @@ public abstract class PlayerBaseState : BaseState,
     IPlayerInputHandler,
     IStateCollisionHandler
 {
-    protected PlayerController pCon;
     protected PlayerStateHandler stateHandler;
 
-    protected PlayerBaseState(PlayerController pCon, PlayerStateHandler stateHandler)
+    protected PlayerBaseState(PlayerStateHandler stateHandler)
     {
-        this.pCon = pCon;
         this.stateHandler = stateHandler;
     }
 
